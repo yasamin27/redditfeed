@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular 2 Hello World</title>
+    <style>
+      body {
+        background-color: rgb(245,248,250);
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills (from CDN), in this exact order -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.16/system-polyfills.js"></script>
+    <script src="https://cdn.rawgit.com/angular/code.angularjs.org/master/tools/system.js"></script>
+    <script src="https://cdn.rawgit.com/angular/code.angularjs.org/master/tools/typescript.js"></script>
+    <script src="https://rawgit.com/SamVerschueren/angular2-polyfill/v0.0.21/angular2-polyfill/bundles/angular2-polyfill.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        map: { rxjs: 'node_modules/rxjs' },
+        transpiler: 'typescript',
+        typescriptOptions: { emitDecoratorMetadata: true },
+        packages: {
+          rxjs: { defaultExtension: 'js' },
+          'app': {defaultExtension: 'ts'}
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <reddit-feed>Loading...</reddit-feed>
+  </body>
+</html>
